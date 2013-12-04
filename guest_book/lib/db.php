@@ -1,9 +1,15 @@
 ﻿<?php
+	
+	require_once "db_data.php";
+
+	
+	/*
 	$host = 'localhost';
 	$username = 'root';
 	$password = '';
 	$default_db = 'mysql';
 	$db = 'guest';
+	*/
 	
 	//Подключаемся к дефолтной бд, чтобы создать позже свою
 	$mysqli = new mysqli ($host, $username, $password, $default_db);

@@ -2,7 +2,9 @@
 
 	session_start();
 	$im = imageCreateTrueColor (90, 50);
-	$rand = mt_rand(1000, 99999);
+	$length = 4;
+	$char = 'abcdefhjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ2345678'; //Убраны похожие символы, чтобы было меньше ошибок на вводе
+	$rand = substr(str_shuffle($char), 0, $length);
 	$_SESSION['rand'] = $rand;
 		
 	$c = imageColorAllocate ($im, 255, 255, 255);

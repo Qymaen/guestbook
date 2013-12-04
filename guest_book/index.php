@@ -1,6 +1,9 @@
 ﻿<?php
 		
 	//require_once "lib/db.php";
+	require_once "lib/form.php";
+	
+	error_reporting(0);
 
 	
 	
@@ -14,41 +17,46 @@
 	<title>Гостевая книга</title>
 </head> 
 <body>
-	
+
 	<div id = "header">
-		<h1>Тестовое задание для NixSolution</h1>
+		<h1>Гостевая книга</h1>
 	</div>
 	
-	<div id = "form">
+	<div id = "wrapper">		
+	
+		<div id = "form">
+			<?php addForm(); ?>
+		</div>
 		
-	</div>
-	
-	
-	<div id = "comment">
-		<form action = "lib/send.php" method = "post" name = "send">
-			<fieldset>
-				<legend>Добавить комментарий</legend>
-				<p><label for = "name">Имя:</label></p>
-					<p><input type = "text" name = "name" id = "name" size = "30" maxlength = "30"></p>
-				
-				<p><label for = "email">E-mail:</label></p>
-					<p><input type = "text" name = "email" id = "email" size = "30" maxlength = "50"></p>
-				
-				<p><label for = "homepage">Homepage:</label></p>
-					<p><input type = "text" name = "homepage" id = "homepage" size = "30" maxlength = "50"></p>
-				
-				<p><label for = "captcha">Код подтверждения:</label></p>
-					<input type = "text" name = "captcha" id = "captcha" size = "30" maxlength = "5">
-					<img src = "lib/captcha.php" alt = "Captcha">
+		
+		<div id = "comment">
+			<form action = "lib/send.php" method = "post" name = "send">
+				<fieldset>
+					<legend>Добавить комментарий</legend>
+					<p><input type = "text" name = "name" id = "name" size = "30" maxlength = "30">
+						<label for = "name">Имя<sup>*</sup></label></p>
 					
-				<p><label for = "msg">Сообщение:</label></p>
-					<textarea cols = "30" rows = "5" name = "msg"></textarea>
-				
-				<input type = "submit" value = "Отправить" >
-			</fieldset>
-		</form>
+					<p><input type = "text" name = "email" id = "email" size = "30" maxlength = "50">
+						<label for = "email">E-mail<sup>*</sup></label></p>
+					
+					<p><input type = "text" name = "homepage" id = "homepage" size = "30" maxlength = "50">
+						<label for = "homepage">Сайт</label></p>
+					
+					<p><img id = "captcha_pic" src = "lib/captcha.php" alt = "Captcha"></p>
+						<p><input type = "text" name = "captcha" id = "captcha" size = "30" maxlength = "5">
+						<label for = "captcha">Код подтверждения<sup>*</sup></label></p>
+						
+						
+					<p><label for = "msg">Сообщение:<sup>*</sup></label></p>
+						<textarea cols = "90" rows = "5" name = "msg"></textarea>
+					
+					<p><input id = "submit" type = "submit" value = "Отправить" ></p>
+					<p><sup>*</sup> - поля, обязательные для заполнения</p>
+				</fieldset>
+			</form>
+		</div>
 	</div>
-			
+	
 	<div id = "footer">
 		<a href = "mailto:Dmitry.Sheludko@gmail.com">Дмитрий Шелудько</a>
 	</div>
